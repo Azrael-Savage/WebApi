@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="assets/style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- Header & Header Content which includes a button to view high scores -->
+		<header>
+			<div
+				id="high-score">View High Score
+			</div>
+			<!-- High Score Container -->
+			
+			<!-- Timer Container -->
+			<div>
+				<p id="quiz-timer" class="is-hidden">Time Left </p>
+
+			</div>
+		</header>
+		<main>
+			<!-- Start Screen Container -->
+			<div id="start-screen" class="start button">
+				<h1>Code Quiz Game</h1>
+				<p>
+					Try to answer the following code-related questions within the time
+					limit. Keep in mind that incorrect answers will penalize your score &
+					time by ten seconds!
+				</p>
+				<button id="js-start-button" class = "start-button">Click here to start!</button>
+			
+			</div>
+
+			<!--Quiz Screen Container  -->
+			<div id="quiz-container" class="is-hidden">
+				<h2 id="question-container">Quiz Container</h2> 
+			
+				<div id="choice-container">
+					
+				</div>
+				
+			</div>	
+			
+		
+			
+			
+			
+		
+
+			<!-- Displays Score with a box to enter initials -->
+		
+			<div id="input-score" class="is-hidden">
+				<h2>Final Score<span id="finalscore"</span></h2>
+				<p id="initials">Enter Initials: <input type="text" id ="player-initials"</p>
+				<button type="button" class="all-buttons" id="submit-results">Submit</button>	
+			</div>
+
+			
+				<!-- Container for sheet to display high scores -->
+			<div id="high-score-data" class="is-hidden">
+				<h3 id="score-data-title">All Scores</h3>
+				<div id="show-scores"</div>
+				<button type="button" class="all-buttons" id="back-button">Previous Page</button>
+                <button type="button" class="all-buttons" id="clear-data">Clear Score Data</button>
+					<!-- Data imported from JavaScript -->
+			</div>
+			
+		</main>
+		
+		<script src="assets/questions.js" defer></script>
+		<script src="assets/script.js" defer></script>
+		
+		
+	</body>
+</html>
