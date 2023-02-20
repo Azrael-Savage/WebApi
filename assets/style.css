@@ -6,6 +6,8 @@
 	font-kerning: auto;
 }
 
+  
+
 html {
 	display: grid;
 	font-family: sans-serif;
@@ -19,20 +21,16 @@ body {
 	margin: 0;
 }
 
-header {
-	color: rgb(10, 10, 10);
-	background-color: rgb(228, 228, 226);
-	margin: auto;
-}
 
-.start.button {
+
+#start-button {
 	color: rgb(205, 223, 139);
 	background-color: rgb(92, 92, 119);
 	border-style: dashed;
 	justify-content: center;
 }
 
-.start.button:hover {
+#start-btn{
 	color: rgb(139, 223, 140);
 }
 
@@ -46,11 +44,10 @@ button {
 }
 
 #choice-container {
-	display: grid;
-	border-style: solid;
-	border-color: aliceblue;
-	background-color: rgb(141, 141, 141);
-	box-sizing: ;
+	display: flex;
+
+	flex-wrap: wrap;
+	justify-content: left\;
 	row-gap: 0.2em;
 }
 .all-buttons {
@@ -69,25 +66,14 @@ button:hover {
 	transform: scale(1.2);
 }
 
-.is-hidden {
-	display: none;
-}
 
-#js-quiz-screen {
+
+#quiz-screen {
 	margin-left: 26.5%;
 	margin-top: 1em;
 }
 
-#js-question-text {
-	display: flex;
-	background-color: rgba(21, 21, 198, 0.537);
-	width: 300px;
-	height: 170px;
-	border-style: dashed;
-}
 
-ul {
-}
 
 li {
 	font-family: "Cambria", serif;
@@ -95,5 +81,10 @@ li {
 }
 
 #quiz-timer {
-	color: black;
+	color: rgb(197, 197, 197);
 }
+
+
+.hidden {
+	display: none;
+  }
