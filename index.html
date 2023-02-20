@@ -1,78 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="assets/style.css" />
-		<title>Document</title>
-	</head>
-	<body>
-		<!-- Header & Header Content which includes a button to view high scores -->
-		<header>
-			<div
-				id="high-score">View High Score
-			</div>
-			<!-- High Score Container -->
-			
-			<!-- Timer Container -->
-			<div>
-				<p id="quiz-timer" class="is-hidden">Time Left </p>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div id="start-screen">
+      <h1>Code Quiz</h1>
+      <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+      <button id="start-btn">Start Quiz</button>
+    </div>
 
-			</div>
-		</header>
-		<main>
-			<!-- Start Screen Container -->
-			<div id="start-screen" class="start button">
-				<h1>Code Quiz Game</h1>
-				<p>
-					Try to answer the following code-related questions within the time
-					limit. Keep in mind that incorrect answers will penalize your score &
-					time by ten seconds!
-				</p>
-				<button id="js-start-button" class = "start-button">Click here to start!</button>
-			
-			</div>
+    <div id="quiz-screen" class="hidden">
+      <h1>Code Quiz</h1>
+      <div id="quiz-timer"></div>
+      <div id="question-container"></div>
+      <div id="choice-container"></div>
+    </div>
 
-			<!--Quiz Screen Container  -->
-			<div id="quiz-container" class="is-hidden">
-				<h2 id="question-container">Quiz Container</h2> 
-			
-				<div id="choice-container">
-					
-				</div>
-				
-			</div>	
-			
-		
-			
-			
-			
-		
+    <div id="score-screen" class="hidden">
+      <h1>All done!</h1>
+      <p>Your final score is <span id="final-score"></span>.</p>
+      <form>
+        <div>
+          <label for="initials">Enter initials:</label>
+          <input type="text" id="initials" />
+        </div>
+        <button id="submit-score">Submit</button>
+      </form>
+    </div>
 
-			<!-- Displays Score with a box to enter initials -->
-		
-			<div id="input-score" class="is-hidden">
-				<h2>Final Score<span id="finalscore"</span></h2>
-				<p id="initials">Enter Initials: <input type="text" id ="player-initials"</p>
-				<button type="button" class="all-buttons" id="submit-results">Submit</button>	
-			</div>
+    <div id="high-score-screen" class="hidden">
+      <h1>High Scores</h1>
+      <ul id="high-scores"></ul>
+    </div>
 
-			
-				<!-- Container for sheet to display high scores -->
-			<div id="high-score-data" class="is-hidden">
-				<h3 id="score-data-title">All Scores</h3>
-				<div id="show-scores"</div>
-				<button type="button" class="all-buttons" id="back-button">Previous Page</button>
-                <button type="button" class="all-buttons" id="clear-data">Clear Score Data</button>
-					<!-- Data imported from JavaScript -->
-			</div>
-			
-		</main>
-		
-		<script src="assets/questions.js" defer></script>
-		<script src="assets/script.js" defer></script>
-		
-		
-	</body>
+	<script src="assets/questions.js" defer></script>
+	<script src="assets/script.js" defer></script>
+  </body>
 </html>
