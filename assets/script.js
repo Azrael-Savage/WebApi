@@ -7,7 +7,7 @@ let questions = [
 			"alertBox('Hello World');",
 			"alert('Hello World');",
 		],
-		correctAnswer: 3,
+		correctAnswer: "alert('Hello World');",
 	},
 	{
 		question: "How to empty an array in JavaScript?",
@@ -17,23 +17,22 @@ let questions = [
 			"arrayList.length=0",
 			"arrayList.len(0)",
 		],
-		correctAnswer: 2,
+		correctAnswer: "arrayList.length=0",
 	},
 	{
-		question:
-			"What function to add an element at the beginning of an array and one at the end?",
+		question:"What function to add an element at the beginning of an array and one at the end?",
 		choices: ["push,unshift", "unshift,push", "first,push", "unshift,last"],
-		correctAnswer: 1,
+		correctAnswer: "unshift,push",
 	},
 	{
 		question: "What will this output? var a = [1, 2, 3]; console.log(a[6]);",
 		choices: ["undefined", "0", "prints nothing", "Syntax error"],
-		correctAnswer: 0,
+		correctAnswer: "undefined",
 	},
 	{
 		question: "What would following code return? console.log(typeof typeof 1);",
 		choices: ["string", "number", "Syntax error", "undefined"],
-		correctAnswer: 0,
+		correctAnswer: "string",
 	},
 ];
 
@@ -53,14 +52,13 @@ var submitScoreButton = document.getElementById("submit-score");
 var highScoreScreen = document.getElementById("high-score-screen");
 var scoreList = document.getElementById("high-scores");
 
-
 /* Timer */
 var timeLeft = 60;
 var timerInterval;
 
 /* Quiz State */
 var currentQuestion = 0;
-var score = 0;
+var score = 20;
 
 /* Start Button Logic */
 startButton.addEventListener("click", function (event) {
@@ -74,28 +72,22 @@ startButton.addEventListener("click", function (event) {
 questionChoices.addEventListener("click", function (event) {
 	if (event.target.matches("button")) {
 		var selectedAnswer = event.target.textContent;
-		console.log(selectedAnswer)
 		var correctAnswer = questions[currentQuestion].correctAnswer;
-		console.log(correctAnswer)
 		if (selectedAnswer === correctAnswer) {
 			score++;
-			
 		} else {
 			timeLeft -= 10;
 			if (timeLeft < 0) {
 				timeLeft = 0;
-				
 			}
 			quizTimer.textContent = "Time left: " + timeLeft;
 		}
 		currentQuestion++;
-		if (currentQuestion === questions.length) {
-			showHighScores();
+		if (currentQuestion >= questions.length) {
+			endQuiz();
 		} else {
 			renderQuestion();
-			
 		}
-		
 	}
 });
 
@@ -119,17 +111,20 @@ submitScoreButton.addEventListener("click", function (event) {
 
 /* Helper Functions */
 function renderQuestion() {
-	var question = questions[currentQuestion];
-	questionText.textContent = question.question;
-	questionChoices.innerHTML = "";
-	for (var i = 0; i < question.choices.length; i++) {
-		var choice = question.choices[i];
-		
-		var choiceBtn = document.createElement("button");
-		choiceBtn.textContent = choice;
-		choiceBtn.classList.add("choice-btn");
-		questionChoices.appendChild(choiceBtn);
-		
+	if (currentQuestion < questions.length) {
+		var question = questions[currentQuestion];
+		questionText.textContent = question.question;
+		questionChoices.innerHTML = "";
+		for (var i = 0; i < question.choices.length; i++) {
+			var choice = question.choices[i];
+
+			var choiceBtn = document.createElement("button");
+			choiceBtn.textContent = choice;
+			choiceBtn.classList.add("choice-btn");
+			questionChoices.appendChild(choiceBtn);
+		}
+	} else {
+		endQuiz();
 	}
 }
 
@@ -140,16 +135,18 @@ function startTimer() {
 		if (timeLeft <= 0) {
 			clearInterval(timerInterval);
 			endQuiz();
+			showHighScores();
 		}
 	}, 1000);
 }
 
 function endQuiz() {
 	clearInterval(timerInterval);
-	quizScreen.classList.add("is-hidden");
-	scoreScreen.classList.remove("is-hidden");
+	quizScreen.classList.add("hidden");
+	scoreScreen.classList.remove("hidden");
 	finalScoreText.textContent = "Final Score: " + score;
 }
+	
 
 function showHighScores() {
 	var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
@@ -160,9 +157,7 @@ function showHighScores() {
 		listItem.textContent = scoreItem.initials + " - " + scoreItem.score;
 		scoreList.appendChild(listItem);
 	}
-	startScreen.classList.add("is-hidden");
-	scoreScreen.classList.add("is-hidden");
-	highScoreScreen.classList.remove("is-hidden");
+	startScreen.classList.add("hidden");
+	scoreScreen.classList.add("hidden");
+	highScoreScreen.classList.remove("hidden");
 }
-
-showHighScores();

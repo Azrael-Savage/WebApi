@@ -1,0 +1,22 @@
+{
+  "name": "webapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azrael-Savage/WebApi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Azrael-Savage/WebApi/issues"
+  },
+  "homepage": "https://github.com/Azrael-Savage/WebApi#readme",
+  "devDependencies": {
+    "eslint": "^8.34.0"
+  }
+}
