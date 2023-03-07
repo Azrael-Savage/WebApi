@@ -1,6 +1,7 @@
 # Quiz
 
-![Code Quiz1](https://user-images.githubusercontent.com/113001155/223513432-338f7bd4-7376-4fa5-9521-49288eea54c8.png)
+![Quiz](https://user-images.githubusercontent.com/113001155/223513789-0057a103-8e57-4cf6-a9a1-f969fa8d7fb0.PNG)
+
 
 
 ## Description
